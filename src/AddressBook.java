@@ -13,15 +13,18 @@ public class AddressBook {
     {
         buddies.add(buddy);
     }
-    public void removeBuddy()
+    public void removeBuddy(BuddyInfo buddy)
     {
         if (!buddies.isEmpty())
         {
-            buddies.remove(0);
+            buddies.remove(buddy);
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("Address Book");
+        BuddyInfo buddy = new BuddyInfo("Bud", "123 Fake Street", 12);
+        AddressBook addressBook = new AddressBook();
+        addressBook.addBuddy(buddy);
+        addressBook.removeBuddy(buddy);
     }
 }
