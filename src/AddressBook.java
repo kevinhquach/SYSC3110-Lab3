@@ -6,25 +6,26 @@ public class AddressBook {
 
     public AddressBook()
     {
-        buddies = new ArrayList<BuddyInfo>();
+        buddies = new ArrayList<>();
     }
 
     public void addBuddy(BuddyInfo buddy)
     {
-        buddies.add(buddy);
+        if (buddy != null)
+            buddies.add(buddy);
     }
-    public void removeBuddy(BuddyInfo buddy)
+    public BuddyInfo removeBuddy(int index)
     {
-        if (!buddies.isEmpty())
-        {
-            buddies.remove(buddy);
-        }
+        if (index >= 0 && index < buddies.size())
+            return buddies.remove(index);
+
+        return null;
     }
 
     public static void main(String[] args) {
         BuddyInfo buddy = new BuddyInfo("Bud", "123 Fake Street", 12);
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(buddy);
+        addressBook.removeBuddy(0);
     }
 }
